@@ -2,14 +2,14 @@
 # Old noghre.land Next.js web app. The admin panel lives inside it at /admin.
 # NEXT_PUBLIC_* values are baked in at BUILD time. If they are missing the code
 # falls back to https://noghre.land/api/v1 (the LIVE site), so the build refuses.
-# docker build  --build-arg NEXT_PUBLIC_API_URL=https://oldnoghre-api.darkube.app/api/v1 \
-#   --build-arg NEXT_PUBLIC_SITE_URL=https://oldnoghre.darkube.app -t old-frontend .
+# docker build  --build-arg NEXT_PUBLIC_API_URL=https://oldnoghre-api.darkube.ir/api/v1 \
+#   --build-arg NEXT_PUBLIC_SITE_URL=https://oldnoghre.darkube.ir -t old-frontend .
 FROM node:22-bookworm-slim AS build
 RUN corepack enable && corepack prepare pnpm@10.33.4 --activate
 WORKDIR /app
-ARG NEXT_PUBLIC_API_URL=https://oldnoghre-api.darkube.app/api/v1
-ARG NEXT_PUBLIC_SITE_URL=https://oldnoghre.darkube.app
-ARG NEXT_PUBLIC_SOCKET_URL=https://oldnoghre-api.darkube.app
+ARG NEXT_PUBLIC_API_URL=https://oldnoghre-api.darkube.ir/api/v1
+ARG NEXT_PUBLIC_SITE_URL=https://oldnoghre.darkube.ir
+ARG NEXT_PUBLIC_SOCKET_URL=https://oldnoghre-api.darkube.ir
 ARG NEXT_PUBLIC_PAYMENT_GATEWAY=zarinpal
 RUN test -n "$NEXT_PUBLIC_API_URL" && test -n "$NEXT_PUBLIC_SITE_URL" \
  && case "$NEXT_PUBLIC_API_URL" in https://noghre.land*|https://www.noghre.land*) echo "NEXT_PUBLIC_API_URL must NOT be the live site" && exit 1;; esac \
