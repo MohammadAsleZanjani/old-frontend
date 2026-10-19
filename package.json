@@ -1,0 +1,31 @@
+{
+  "name": "noghre-silver-platform",
+  "private": true,
+  "packageManager": "pnpm@10.33.4",
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "release:preflight": "node scripts/release-preflight.mjs",
+    "release:check": "pnpm release:preflight && pnpm typecheck && pnpm lint && pnpm test && pnpm build",
+    "translations:check": "node scripts/check-ui-translations.mjs",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "turbo": "^2.9.16"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.32.0",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^15.15.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.56.1"
+  }
+}

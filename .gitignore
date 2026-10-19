@@ -1,0 +1,20 @@
+node_modules
+.next
+.turbo
+.expo
+apps/mobile/deep-links/generated
+dist
+build
+.output
+.vinxi
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+# legacy deploy
+*.dump
+storage/
+deploy/*.env
+
